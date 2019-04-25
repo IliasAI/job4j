@@ -9,7 +9,7 @@ package ru.job4j.calculator;
  */
 public class Calculator {
     /**
-     * @param first double variable.
+     * @param first  double variable.
      * @param second double variable.
      * @return first number plus second number.
      */
@@ -18,7 +18,7 @@ public class Calculator {
     }
 
     /**
-     * @param first double variable.
+     * @param first  double variable.
      * @param second double variable.
      * @return first number subtract second number
      */
@@ -27,7 +27,7 @@ public class Calculator {
     }
 
     /**
-     * @param first double variable.
+     * @param first  double variable.
      * @param second double variable.
      * @return first number div second number
      */
@@ -36,7 +36,7 @@ public class Calculator {
     }
 
     /**
-     * @param first double variable.
+     * @param first  double variable.
      * @param second double variable.
      * @return first number multiple second number
      */
