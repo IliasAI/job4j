@@ -8,8 +8,8 @@ package ru.job4j.converter;
  * @since 25.04.2019
  */
 public class Converter {
-    private final int EURO = 70;
-    private final int USD = 60;
+    private static final int EURO = 70;
+    private static final int USD = 60;
     /**
      * Конвертируем рубли в евро.
      *
