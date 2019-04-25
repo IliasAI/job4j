@@ -1,5 +1,10 @@
 package ru.job4j.condition;
 
+/**
+ * @author Ilias Agakhanov (ferr0rcode@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public class Triangle {
 
     /**

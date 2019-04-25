@@ -7,8 +7,15 @@ import org.junit.experimental.categories.Categories;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.*;
 
-
+/**
+ * @author Ilias Agakhanov (ferr0rcode@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
 public class TriangleTest {
+    /**
+     * Triangle test
+     */
     @Test
     public void whenAreaSetThreePointsThenTriangleArea() {
         // Создаем объект треугольник.
