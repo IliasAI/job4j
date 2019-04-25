@@ -27,4 +27,12 @@ public class TriangleTest {
         //Проверяем результат и ожидаемое значение.
         assertThat(result, closeTo(expected, 0.1));
     }
+
+    @Test
+    public void whenAreaSetMoreThreePointsThenTriangleArea() {
+        Triangle triangle = new Triangle();
+        double result = triangle.area(3, 5, 3, 0, 0, 0);
+        double expected = 7.5D;
+        assertThat(result, closeTo(expected, 0.1));
+    }
 }
