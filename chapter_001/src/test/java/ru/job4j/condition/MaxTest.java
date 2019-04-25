@@ -20,4 +20,20 @@ public class MaxTest {
         int expected = 2;
         assertThat(result, is(expected));
     }
+
+    @Test
+    public void whenMax0To0Then0() {
+        Max max = new Max();
+        int result = max.max(0, 0);
+        int expected = 0;
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenNegativeNumber4To2Then2() {
+        Max max = new Max();
+        int result = max.max(-4, -2);
+        int expected = -2;
+        assertThat(result, is(expected));
+    }
 }
