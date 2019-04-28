@@ -13,14 +13,10 @@ public class Turn {
      * @return перевернутый массив.
      */
     public int[] back(int[] array) {
-        for (int index = 0; index < array.length; index++) {
-            if (index <= (array.length - 1) / 2) {
+        for (int index = 0; index < array.length / 2; index++) {
                 int tmp = array[index];
                 array[index] = array[(array.length - 1) - index];
                 array[(array.length - 1) - index] = tmp;
-            } else {
-                break;
-            }
         }
         return array;
     }
