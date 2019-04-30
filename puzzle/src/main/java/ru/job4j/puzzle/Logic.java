@@ -87,6 +87,7 @@ public class Logic {
                 if (value == 1) {
                     horizontal++;
                 } else {
+                    horizontal = 0;
                     break;
                 }
             }
@@ -102,6 +103,7 @@ public class Logic {
                     if (table[in][out] == 1) {
                         vertical++;
                     } else {
+                        vertical = 0;
                         break;
                     }
                 }
