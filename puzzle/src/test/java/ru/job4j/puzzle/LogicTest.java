@@ -58,15 +58,15 @@ public class LogicTest {
     }
 
     @Test
-    public void whenWinTest() {
+    public void whenNotWinTest() {
         Logic logic = new Logic(5) {
             @Override
             public int[][] convert() {
                 return new int[][] {
-                        {1, 0, 1, 0, 0},
+                        {1, 1, 1, 0, 0},
                         {0, 0, 1, 0, 0},
-                        {0, 0, 1, 1, 1},
                         {0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0},
                 };
             }

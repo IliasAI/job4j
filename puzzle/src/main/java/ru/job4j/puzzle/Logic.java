@@ -77,40 +77,26 @@ public class Logic {
         int horizontal = 0;
         int vertical = 0;
 
-        //проверка по горизонтали
-        for (int[] row : table) {
-            if (horizontal == table.length) {
+        for (int out = 0; out < table.length; out++) {
+            if (horizontal == table.length || vertical == table.length) {
                 result = true;
                 break;
             }
-            for (int value : row) {
-                if (value == 1) {
+            for (int in = 0; in < table.length; in++) {
+                if (table[out][in] == 1) {
                     horizontal++;
                 } else {
                     horizontal = 0;
-                    break;
                 }
-            }
-        }
-        if (!result) {
-            //проверка по вертикали
-            for (int out = 0; out < table.length; out++) {
-                if (vertical == table.length) {
-                    result = true;
-                    break;
-                }
-                for (int in = 0; in < table.length; in++) {
-                    if (table[in][out] == 1) {
-                        vertical++;
-                    } else {
-                        vertical = 0;
-                        break;
-                    }
+                if (table[in][out] == 1) {
+                    vertical++;
+                } else {
+                    vertical = 0;
                 }
             }
         }
         return result;
-    }
+}
 
     public int[][] convert() {
         int[][] table = new int[this.size][this.size];
