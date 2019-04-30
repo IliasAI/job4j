@@ -29,9 +29,21 @@ public class ArrayDuplicateTest {
     @Test
     public void whenRemoveDuplicatesThenArrayWithoutDuplicate2() {
         ArrayDuplicate arrayDuplicate = new ArrayDuplicate();
-        String[] input = new String[]{"Привет", "Привет", "Привет", "Супер", "Привет", "Привет", "Java", "Java"};
+        String[] input = new String[]{"Привет", "Привет", "Привет", "Супер", "job4j", "Привет", "Java", "Java"};
         String[] result = arrayDuplicate.remove(input);
-        String[] expected = {"Привет", "Супер", "Java"};
+        String[] expected = {"Привет", "Супер", "job4j", "Java"};
+        assertThat(result, is(expected));
+    }
+
+    /**
+     * Test remove duplicates more.
+     */
+    @Test
+    public void whenRemoveDuplicatesThenArrayWithoutDuplicate3() {
+        ArrayDuplicate arrayDuplicate = new ArrayDuplicate();
+        String[] input = new String[]{"Привет", "Привет", "Привет"};
+        String[] result = arrayDuplicate.remove(input);
+        String[] expected = {"Привет"};
         assertThat(result, is(expected));
     }
 }

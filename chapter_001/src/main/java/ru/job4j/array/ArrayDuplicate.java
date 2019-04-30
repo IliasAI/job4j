@@ -14,6 +14,7 @@ public class ArrayDuplicate {
      * @return массив без дубликатов.
      */
     public String[] remove(String[] array) {
+        int unique = array.length;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == null) {
                 continue;
@@ -22,6 +23,7 @@ public class ArrayDuplicate {
             for (int j = i + 1; j < array.length; j++) {
                 if (tmp.equals(array[j])) {
                     array[j] = null;
+                    unique--;
                 }
             }
         }
@@ -36,7 +38,7 @@ public class ArrayDuplicate {
                 }
             }
         }
-        return Arrays.copyOf(array, 3);
+        return Arrays.copyOf(array, unique);
     }
 
 }
