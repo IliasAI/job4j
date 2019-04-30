@@ -47,10 +47,10 @@ public class MatrixCheckTest {
     public void whenDataMonoByEvenNumberOfElementsThenTrue() {
         MatrixCheck check = new MatrixCheck();
         boolean[][] input = new boolean[][]{
-                {false, true, false, false},
-                {true, false, false, true},
-                {true, false, false, false},
-                {false, true, true, false}
+                {false, true, false, true},
+                {true, false, true, true},
+                {true, true, false, false},
+                {true, true, true, false}
         };
         boolean result = check.mono(input);
         assertThat(result, is(true));
