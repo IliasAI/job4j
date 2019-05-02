@@ -2,7 +2,7 @@ package ru.job4j.array;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -20,7 +20,7 @@ public class ArrayDuplicateTest {
         String[] input = new String[]{"Привет", "Мир", "Привет", "Супер", "Мир"};
         String[] result = arrayDuplicate.remove(input);
         String[] expected = {"Привет", "Мир", "Супер"};
-        assertThat(result, is(expected));
+        assertThat(result, arrayContainingInAnyOrder(expected));
     }
 
     /**
@@ -31,8 +31,8 @@ public class ArrayDuplicateTest {
         ArrayDuplicate arrayDuplicate = new ArrayDuplicate();
         String[] input = new String[]{"Привет", "Привет", "Привет", "Супер", "job4j", "Привет", "Java", "Java"};
         String[] result = arrayDuplicate.remove(input);
-        String[] expected = {"Привет", "Супер", "job4j", "Java"};
-        assertThat(result, is(expected));
+        String[] expected = {"Привет", "Java", "job4j", "Супер"};
+        assertThat(result, arrayContainingInAnyOrder(expected));
     }
 
     /**
@@ -44,7 +44,7 @@ public class ArrayDuplicateTest {
         String[] input = new String[]{"Привет", "Привет", "Привет"};
         String[] result = arrayDuplicate.remove(input);
         String[] expected = {"Привет"};
-        assertThat(result, is(expected));
+        assertThat(result, arrayContainingInAnyOrder(expected));
     }
 }
 
