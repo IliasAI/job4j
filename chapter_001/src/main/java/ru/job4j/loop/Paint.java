@@ -22,7 +22,6 @@ public class Paint {
         );
     }
 
-
     /**
      * Рисует левую сторону пирамиды.
      *
@@ -36,7 +35,6 @@ public class Paint {
                 (row, column) -> row >= height - column - 1
         );
     }
-
 
     /**
      * Рисует пирамиду.

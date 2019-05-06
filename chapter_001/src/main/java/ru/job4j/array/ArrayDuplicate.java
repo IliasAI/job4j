@@ -7,7 +7,6 @@ import java.util.Arrays;
  * @version $Id$
  */
 public class ArrayDuplicate {
-
     /**
      * Метод убирает все дубликаты строк из массива.
      *
