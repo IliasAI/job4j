@@ -36,4 +36,20 @@ public class MaxTest {
         int expected = -2;
         assertThat(result, is(expected));
     }
+
+    @Test
+    public void whenFirstMaxOfThree() {
+        Max max = new Max();
+        int result = max.max(6, 4, 3);
+        int expected = 6;
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenFourthMaxOfFour() {
+        Max max = new Max();
+        int result = max.max(1, 0, 4, 9);
+        int expected = 9;
+        assertThat(result, is(expected));
+    }
 }
