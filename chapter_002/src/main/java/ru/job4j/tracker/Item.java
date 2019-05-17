@@ -77,4 +77,9 @@ public class Item {
     public int hashCode() {
         return Objects.hash(id, name, desc, time);
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        return String.valueOf(sb.append("ID: ").append(id).append(" ").append("Task name: ").append(name).append(" ").append("Description: ").append(desc).append(" ").append("Create time: ").append(time));
+    }
 }
