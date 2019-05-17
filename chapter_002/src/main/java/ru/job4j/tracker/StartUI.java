@@ -63,7 +63,7 @@ public class StartUI {
                     this.deleteItem();
                     break;
                 case FIND_BY_ID:
-                    System.out.println(tracker.findById(this.input.askID()).toString());
+                    System.out.println(tracker.findById(this.input.ask("Введите ID заявки: ")).toString());
                     break;
                 case FIND_BY_NAME:
                     showAll(tracker.findByName(this.input.ask("Введите имя для поиска:")));
@@ -81,7 +81,7 @@ public class StartUI {
      * Удаляет заявку.
      */
     private void deleteItem() {
-        String id = this.input.askID();
+        String id = this.input.ask("Введите ID заявки: ");
         if (tracker.delete(id)) {
             System.out.println("Заявка удалена.\n");
         } else {
@@ -93,7 +93,7 @@ public class StartUI {
      * Позволяет редактировать заявку.
      */
     private void editItem() {
-        String id = this.input.askID();
+        String id = this.input.ask("Введите ID заявки: ");
         if (tracker.replace(id, doItem())) {
             System.out.println("Заявка успешно изменена.\n");
         } else {

@@ -16,9 +16,4 @@ public class ConsoleInput implements Input {
         System.out.println(question);
         return scanner.nextLine();
     }
-
-    public String askID() {
-        System.out.println("Введите ID заявки: ");
-        return scanner.nextLine();
-    }
 }
