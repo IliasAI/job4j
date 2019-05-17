@@ -18,9 +18,12 @@ public class Triangle implements Shape {
     public String draw() {
         StringBuilder pic = new StringBuilder();
         pic.append("    Δ   ");
+        pic.append(System.lineSeparator());
         pic.append("   ΔΔΔ  ");
+        pic.append(System.lineSeparator());
         pic.append("  ΔΔΔΔΔ ");
-        pic.append("ΔΔΔΔΔΔΔΔΔ");
+        pic.append(System.lineSeparator());
+        pic.append(" ΔΔΔΔΔΔΔ");
         return pic.toString();
     }
 }
