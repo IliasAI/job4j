@@ -9,6 +9,7 @@ package ru.job4j.tracker;
  */
 
 public class StartUI {
+    private final String ln = System.lineSeparator();
     /**
      * Константы меню.
      */
@@ -19,7 +20,6 @@ public class StartUI {
     private static final String FIND_BY_ID = "4";
     private static final String FIND_BY_NAME = "5";
     private static final String EXIT = "6";
-
     /**
      * Получение данных от пользователя.
      */
@@ -63,10 +63,11 @@ public class StartUI {
                     this.deleteItem();
                     break;
                 case FIND_BY_ID:
-                    System.out.println(tracker.findById(this.input.ask("Введите ID заявки: ")).toString());
+                    System.out.println(tracker.findById(this.input.ask("Введите ID заявки: ")).toString() + ln);
                     break;
                 case FIND_BY_NAME:
                     showAll(tracker.findByName(this.input.ask("Введите имя для поиска:")));
+                    break;
                 case EXIT:
                     exit = true;
                     break;
@@ -118,8 +119,7 @@ public class StartUI {
      */
     private void showAll(Item[] items) {
         for (Item item : items) {
-            System.out.println(item.toString());
-            System.out.println();
+            System.out.println(item.toString() + ln);
         }
     }
 
@@ -139,14 +139,24 @@ public class StartUI {
      * Метод отображает меню в консоле.
      */
     private void showMenu() {
-        System.out.println("Меню.");
-        System.out.println("0. Add new item");
-        System.out.println("1. Show all items");
-        System.out.println("2. Edit item");
-        System.out.println("3. Delete item");
-        System.out.println("4. Find item by ID");
-        System.out.println("5. Find items by name");
-        System.out.println("6. Exit Program");
+        StringBuilder menu = new StringBuilder();
+        menu.append("Меню.");
+        menu.append(ln);
+        menu.append("0. Add new item");
+        menu.append(ln);
+        menu.append("1. Show all items");
+        menu.append(ln);
+        menu.append("2. Edit item");
+        menu.append(ln);
+        menu.append("3. Delete item");
+        menu.append(ln);
+        menu.append("4. Find item by ID");
+        menu.append(ln);
+        menu.append("5. Find items by name");
+        menu.append(ln);
+        menu.append("6. Exit Program");
+        menu.append(ln);
+        System.out.println(menu);
     }
 
     /**
