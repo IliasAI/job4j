@@ -9,17 +9,6 @@ package ru.job4j.tracker;
  */
 
 public class StartUI {
-    private final String ln = System.lineSeparator();
-    /**
-     * Константы меню.
-     */
-    private static final String ADD = "0";
-    private static final String SHOW_ALL = "1";
-    private static final String EDIT = "2";
-    private static final String DELETE = "3";
-    private static final String FIND_BY_ID = "4";
-    private static final String FIND_BY_NAME = "5";
-    private static final String EXIT = "6";
     /**
      * Получение данных от пользователя.
      */
@@ -45,118 +34,14 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
-            switch (answer) {
-                case ADD:
-                    this.createItem();
-                    break;
-                case SHOW_ALL:
-                    this.showAll(tracker.findAll());
-                    break;
-                case EDIT:
-                    this.editItem();
-                    break;
-                case DELETE:
-                    this.deleteItem();
-                    break;
-                case FIND_BY_ID:
-                    System.out.println(tracker.findById(this.input.ask("Введите ID заявки: ")).toString() + ln);
-                    break;
-                case FIND_BY_NAME:
-                    showAll(tracker.findByName(this.input.ask("Введите имя для поиска:")));
-                    break;
-                case EXIT:
-                    exit = true;
-                    break;
-                default:
-                    System.out.println("Такого пункта меню нет.");
-
-            }
-        }
-    }
-
-    /**
-     * Удаляет заявку.
-     */
-    private void deleteItem() {
-        String id = this.input.ask("Введите ID заявки: ");
-        if (tracker.delete(id)) {
-            System.out.println("Заявка удалена.\n");
-        } else {
-            System.out.printf("ID %s не найдено в хранилище.\n\n", id);
-        }
-    }
-
-    /**
-     * Позволяет редактировать заявку.
-     */
-    private void editItem() {
-        String id = this.input.ask("Введите ID заявки: ");
-        if (tracker.replace(id, doItem())) {
-            System.out.println("Заявка успешно изменена.\n");
-        } else {
-            System.out.printf("ID %s не найдено в хранилище.\n\n", id);
-        }
-    }
-
-    /**
-     * Метод реализует добавленяи новый заявки в хранилище.
-     */
-    private void createItem() {
-        System.out.println("------------ Добавление новой заявки --------------");
-        Item item = doItem();
-        this.tracker.add(item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
-    }
-
-    /**
-     * Метод отображает все заявки в хранилище.
-     *
-     * @param items хранилище заявок.
-     */
-    private void showAll(Item[] items) {
-        for (Item item : items) {
-            System.out.println(item.toString() + ln);
-        }
-    }
-
-    /**
-     * Метод создает заявку.
-     *
-     * @return заявка.
-     */
-    private Item doItem() {
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
-        long time = System.currentTimeMillis();
-        return new Item(name, desc, time);
-    }
-
-    /**
-     * Метод отображает меню в консоле.
-     */
-    private void showMenu() {
-        StringBuilder menu = new StringBuilder();
-        menu.append("Меню.");
-        menu.append(ln);
-        menu.append("0. Add new item");
-        menu.append(ln);
-        menu.append("1. Show all items");
-        menu.append(ln);
-        menu.append("2. Edit item");
-        menu.append(ln);
-        menu.append("3. Delete item");
-        menu.append(ln);
-        menu.append("4. Find item by ID");
-        menu.append(ln);
-        menu.append("5. Find items by name");
-        menu.append(ln);
-        menu.append("6. Exit Program");
-        menu.append(ln);
-        System.out.println(menu);
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        int key;
+        menu.fillActions();
+        do {
+            menu.show();
+            key = Integer.valueOf(input.ask("Выберите пункт меню: "));
+            menu.select(key);
+        } while (key != 6);
     }
 
     /**
